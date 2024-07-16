@@ -4,7 +4,6 @@ import boto3
 from io import BytesIO
 import logging
 
-# Initialize logger
 logger = logging.getLogger()
 logger.setLevel(logging.INFO)
 
@@ -56,7 +55,7 @@ def lambda_handler(event, context):
                 next_serial_number = last_row - 2
                 new_row = [next_serial_number] + data['values']
                 if len(new_row) < 5:
-                    new_row.append("Compensating Control Ref Number")  # Add appropriate default value or fetch from `data`
+                    new_row.append("CC-1")  
                 appendix_c_sheet.append(new_row)
                 logger.info(f"Added row to Appendix C: {new_row}")
             elif data['appendix'] == 'E':
@@ -64,7 +63,7 @@ def lambda_handler(event, context):
                 next_serial_number = last_row - 2
                 new_row = [next_serial_number] + data['values']
                 if len(new_row) < 5:
-                    new_row.append("Customized Approach Ref Number")  # Add appropriate default value or fetch from `data`
+                    new_row.append("CA-1")  
                 appendix_e_sheet.append(new_row)
                 logger.info(f"Added row to Appendix E: {new_row}")
 
@@ -96,15 +95,15 @@ def lambda_handler(event, context):
             elif data['appendix'] == 'E':
                 sheet = appendix_e_sheet
 
-            row = int(data['row']) 
+            row = int(data['row']) + 4
             col = int(data['col'])  
             value = data['value']
-
+            logger.info('Updating row number: {row} and column number: {col}')
             if row <= 3:
                 logger.info('Cannot update header row')
                 return
 
-            # Update the cell value
+            # Update cell value
             sheet.cell(row=row, column=col).value = value
             logger.info(f"Updated cell ({row}, {col}) to {value}")
 
@@ -116,12 +115,40 @@ def lambda_handler(event, context):
             elif data['appendix'] == 'E':
                 sheet = appendix_e_sheet
 
-            row = data['row'] + 3  
+            row = data['row'] + 4  
+            logger.info('Deleting row number: {row}')
             if row <= 3:
                 logger.info('Cannot delete header row')
-                return
+                return {
+                    'statusCode': 400,
+                    'body': json.dumps({'error': 'Cannot delete header row'}),
+                    'headers': {
+                        'Access-Control-Allow-Origin': '*',
+                        'Access-Control-Allow-Headers': 'Content-Type',
+                        'Access-Control-Allow-Methods': 'OPTIONS,POST,GET'
+                    }
+                }
+            
+            
             sheet.delete_rows(row)
             logger.info(f"Deleted row {row}")
+
+            # Shift rows 
+            max_row = sheet.max_row
+
+            for r in range(row, max_row):
+                for col in range(1, sheet.max_column + 1):
+                    if r + 1 <= max_row:
+                        sheet.cell(row=r, column=col).value = sheet.cell(row=r + 1, column=col).value
+                    else:
+                        sheet.cell(row=r, column=col).value = None
+            max_row = sheet.max_row
+            # Update serial numbers 
+            for r in range(4, max_row + 1):  
+                sheet.cell(row=r, column=1).value = r - 3 
+
+            logger.info(f"Shifted rows below {row} and updated serial numbers")
+
 
 
         logger.info("Saving the updated Excel file back to S3")

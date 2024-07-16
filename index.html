@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Appendix C and E Tables</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <style>
+        .table th, .table td {
+            padding: 10px;
+            vertical-align: middle;
+            text-align: center;
+            border: 1px solid #dee2e6;
+        }
+        .table th {
+            background-color: #f8f9fa;
+        }
+        .table-container {
+            overflow-x: auto;
+            margin-bottom: 20px;
+        }
+        .table th, .table td {
+            white-space: nowrap;
+        }
+        .table-title {
+            text-align: center;
+            margin: 20px 0;
+        }
+        #create-button {
+            display: block;
+            margin: 20px auto;
+        }
+        .action-button {
+            margin: 0 5px;
+            padding: 5px 10px;
+        }
+        .update-button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+        }
+        .delete-button {
+            background-color: #dc3545;
+            color: white;
+            border: none;
+        }
+        #create-form {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="table-title">Appendix C and E Tables</h1>
+        <div class="table-container">
+            <h2>Appendix C</h2>
+            <table class="table" id="appendix-c-table">
+                <thead>
+                    <tr>
+                        <th>Sr No</th>
+                        <th>Compensating Controls Reference Number</th>
+                        <th>Aspect(s) of the requirement where the Compensating Control(s) was used</th>
+                        <th>Document the legitimate technical or business constraints precluding compliance with the original requirement.</th>
+                        <th>Define the compensating controls, explain how they address the objectives of the original control and the increased risk, if any.</th>
+                        <th>Define the objective of the original control (for example, the Customized Approach Objective).</th>
+                        <th>Identify the objective met by the compensating control (note: this can be, but is not required to be, the stated Customized Approach Objective for the PCI DSS requirement).</th>
+                        <th>Identify any additional risk posed by the lack of the original control.</th>
+                        <th>Define how the compensating controls were validated and tested.</th>
+                        <th>Define process(es) and controls in place to maintain compensating controls.</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+        <div class="table-container">
+            <h2>Appendix E</h2>
+            <table class="table" id="appendix-e-table">
+                <thead>
+                        <tr>
+                            <th colspan="9"></th>  
+                            <th colspan="4">Describe the testing procedures derived and performed by the assessor to validate that the implemented controls meet the Customized Approach Objective; for example, whether the customized control(s) is sufficiently robust to provide at least an equivalent level of protection as provided by the defined approach. Note 1: Technical reviews (for example, reviewing configuration settings, operating effectiveness, etc.) should be performed where possible and appropriate. Note 2: Add additional rows for each assessor-derived testing procedure, as needed. Ensure that all rows to the right of the “Assessor-derived testing procedure” are copied for each assessor-derived testing procedure that is added.</th>
+                            <th colspan="4">Document the testing procedures derived and performed by the assessor to validate the controls are maintained to ensure ongoing effectiveness; for example, how the entity monitors for control effectiveness and how control failures are detected, responded to, and the actions taken. Note 1: Technical reviews (for example, reviewing configuration settings, operating effectiveness, etc.) should be performed where possible and appropriate. Note 2: Add additional rows for each assessor-derived testing procedure, as needed. Ensure that all rows to the right of the “Assessor-derived testing procedure” are copied for each assessor-derived testing procedure that is added.</th>
+                        </tr>
+                    <tr>
+                        <th>Sr No</th>
+                        <th>Customized Approach Reference Number</th>
+                        <th>Aspect(s) of the requirement where the Customized Approach was used</th>
+                        <th>Identify the customized control name / identifier for each control used to meet the Customized Approach Objective.(Note: use the Customized Control name from the assessed entity’s controls matrix)</th>
+                        <th>Describe each control used to meet the Customized Approach Objective.(Note: Refer to the Payment Card Industry Data Security Standard (PCI DSS) Requirements and Testing Procedures for the Customized Approach Objective)</th>
+                        <th>Describe how the control(s) meet the Customized Approach Objective</th>
+                        <th>Identify the Controls Matrix documentation reviewed that supports a customized approach for this requirement.</th>
+                        <th>Identify the Targeted Risk Analysis documentation reviewed that supports the customized approach for this requirement.</th>
+                        <th>Identify name(s) of the assessor(s) who attests that: 1. The entity completed the Controls Matrix including all information specified in the Controls Matrix Template in Appendix E1 of Payment Card Industry Data Security Standard (PCI DSS) Requirements and Testing Procedures and the results of the Controls Matrix support the customized approach for this requirement. 2. The entity completed the Targeted Risk Analysis including all information specified in the Targeted Risk Analysis Template in Appendix E2 of Payment Card Industry Data Security Standard (PCI DSS) Requirements and Testing Procedures, and that the results of the Risk Analysis support use of the customized approach for this requirement.</th>
+                        <th>Assessor-derived testing procedure</th>
+                        <th>Identify what was tested (for example, individuals interviewed, system components reviewed, processes observed, etc.)Note: all items tested must be uniquely identified.</th>
+                        <th>Identify all evidence examined for this testing procedure.</th>
+                        <th>Describe the results of the testing performed by the assessor for this testing procedure and how these results verify the implemented controls meet the Customized Approach Objective.</th>
+                        <th>Assessor-derived testing procedure</th>
+                        <th>Identify what was tested (for example, individuals interviewed, system components reviewed, processes observed, etc.)Note: all items tested must be uniquely identified.</th>
+                        <th>Identify all evidence examined for this testing procedure.</th>
+                        <th>Describe the results of the testing performed by the assessor for this testing procedure and how these results verify the implemented controls meet the Customized Approach Objective.</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+        <div id="update-form" style="display:none;">
+            <form id="update-record-form">
+                <button type="button" class="close" aria-label="Close" onclick="$('#update-form').hide();">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <div class="form-group">
+                    <label for="update-appendix">Appendix</label>
+                    <select id="update-appendix" class="form-control">
+                        <option value="C">C</option>
+                        <option value="E">E</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="update-col">Column</label>
+                    <input type="number" id="update-col" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="update-value">New Value</label>
+                    <input type="text" id="update-value" class="form-control">
+                </div>
+                <button type="submit" class="btn btn-success">Submit</button>
+            </form>
+        </div>
+
+
+        <div id="create-form" style="display:none;">
+            <button type="button" class="close" aria-label="Close" onclick="$('#create-form').hide()">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <form id="record-form">
+                <div class="form-group">
+                    <label for="appendix">Appendix</label>
+                    <select id="appendix" class="form-control">
+                        <option value="C">C</option>
+                        <option value="E">E</option>
+                    </select>
+                </div>
+                <div id="form-fields"></div>
+                <button type="submit" class="btn btn-success">Submit</button>
+            </form>
+        </div>
+        <button id="create-button" class="btn btn-primary">Create Record</button>
+    </div>
+    <script>
+        const lambdaUrl = 'https://0ngcz0jayc.execute-api.ap-south-1.amazonaws.com/test/excel-crud';
+
+        $(document).ready(function() {
+            loadTables();
+
+            $('#create-button').click(function() {
+                $('#create-form').toggle();
+            });
+
+            $('#appendix').change(function() {
+                var appendix = $(this).val();
+                var formFields = $('#form-fields');
+                formFields.empty();
+
+                if (appendix === 'C') {
+                    formFields.append(`
+                        <div class="form-group">
+                            <label for="cc_ref_no">Compensating Controls Reference Number</label>
+                            <input type="text" id="cc_ref_no" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="aspect_req">Aspect(s) of the requirement where the Compensating Control(s) was used</label>
+                            <input type="text" id="aspect_req" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="constraints">Document the legitimate technical or business constraints precluding compliance with the original requirement.</label>
+                            <input type="text" id="constraints" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="comp_controls">Define the compensating controls, explain how they address the objectives of the original control and the increased risk, if any.</label>
+                            <input type="text" id="comp_controls" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="obj_orig_control">Define the objective of the original control (for example, the Customized Approach Objective).</label>
+                            <input type="text" id="obj_orig_control" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="obj_met">Identify the objective met by the compensating control (note: this can be, but is not required to be, the stated Customized Approach Objective for the PCI DSS requirement).</label>
+                            <input type="text" id="obj_met" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="additional_risk">Identify any additional risk posed by the lack of the original control.</label>
+                            <input type="text" id="additional_risk" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="validate_test">Define how the compensating controls were validated and tested.</label>
+                            <input type="text" id="validate_test" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="process_control">Define process(es) and controls in place to maintain compensating controls.</label>
+                            <input type="text" id="process_control" class="form-control">
+                        </div>
+                    `);
+                } else if (appendix === 'E') {
+                    formFields.append(`
+                    <div class="form-group">
+                        <label for="ca_ref_no">Customized Approach Reference Number</label>
+                        <input type="text" id="ca_ref_no" class="form-control">
+                    </div
+                    <div class="form-group">
+                        <label for="aspect_req">Aspect(s) of the requirement where the Customized Approach was used</label>
+                        <input type="text" id="aspect_req" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="custom_control">Identify the customized control name / identifier for each control used to meet the Customized Approach Objective.(Note: use the Customized Control name from the assessed entity’s controls matrix)</label>
+                        <input type="text" id="custom_control" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="control_desc">Describe each control used to meet the Customized Approach Objective.(Note: Refer to the Payment Card Industry Data Security Standard (PCI DSS) Requirements and Testing Procedures for the Customized Approach Objective)</label>
+                        <input type="text" id="control_desc" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="control_meet">Describe how the control(s) meet the Customized Approach Objective</label>
+                        <input type="text" id="control_meet" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="controls_matrix">Identify the Controls Matrix documentation reviewed that supports a customized approach for this requirement.</label>
+                        <input type="text" id="controls_matrix" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="risk_analysis">Identify the Targeted Risk Analysis documentation reviewed that supports the customized approach for this requirement.</label>
+                        <input type="text" id="risk_analysis" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="assessor_name">Identify name(s) of the assessor(s) who attests that:</label>
+                        <textarea id="assessor_name" class="form-control" rows="3"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="testing_proc">Assessor-derived testing procedure</label>
+                        <input type="text" id="testing_proc" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="tested">Identify what was tested (for example, individuals interviewed, system components reviewed, processes observed, etc.)Note: all items tested must be uniquely identified.</label>
+                        <input type="text" id="tested" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="evidence">Identify all evidence examined for this testing procedure.</label>
+                        <input type="text" id="evidence" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="results">Describe the results of the testing performed by the assessor for this testing procedure and how these results verify the implemented controls meet the Customized Approach Objective.</label>
+                        <input type="text" id="results" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="assessor-derived-testing-procedure">Assessor-derived testing procedure</label>
+                        <input type="text" id="assessor-derived-testing-procedure" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="identify-what-was-tested">Identify what was tested (for example, individuals interviewed, system components reviewed, processes observed, etc.) Note: all items tested must be uniquely identified.</label>
+                        <input type="text" id="identify-what-was-tested" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="identify-all-evidence-examined">Identify all evidence examined for this testing procedure.</label>
+                        <input type="text" id="identify-all-evidence-examined" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="describe-results-of-testing">Describe the results of the testing performed by the assessor for this testing procedure and how these results verify the implemented controls meet the Customized Approach Objective.</label>
+                        <input type="text" id="describe-results-of-testing" class="form-control">
+                    </div>
+                `);
+            }
+        });
+
+        
+        $('#appendix').trigger('change');
+
+        $('#record-form').submit(function(event) {
+            event.preventDefault();
+
+            var appendix = $('#appendix').val();
+            var values = [];
+            var emptyFields = false;
+
+            $('#form-fields .form-control').each(function() {
+                if ($(this).val().trim() === "") {
+                    emptyFields = true;
+                    return false; 
+                }
+                values.push($(this).val());
+            });
+
+            if (emptyFields) {
+                alert("All fields must be filled out.");
+                return;
+            }
+
+            $.ajax({
+                url: lambdaUrl,
+                type: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify({
+                    operation: 'create',
+                    data: {
+                        appendix: appendix,
+                        values: values
+                    }
+                }),
+                success: function(response) {
+                    alert('Record created successfully!');
+                    loadTables();
+                    $('#create-form').hide();
+                },
+                error: function(error) {
+                    alert('Error creating record: ' + error.responseText);
+                }
+            });
+        });
+
+        function loadTables() {
+            loadTable('C', '#appendix-c-table tbody');
+            loadTable('E', '#appendix-e-table tbody');
+        }
+
+        function loadTable(appendix, tableBodySelector) {
+            $.ajax({
+                url: lambdaUrl,
+                type: 'POST',
+                contentType: 'application/json',
+                dataType: 'json',
+                data: JSON.stringify({
+                    operation: 'read',
+                    data: {
+                        appendix: appendix
+                    }
+                }),
+                
+                success: function(response) {
+                    
+                    var tableBody = $(tableBodySelector);
+                    tableBody.empty();
+
+                    response.forEach(function(response, index) {
+                        var tr = $('<tr></tr>');
+                        response.forEach(function(cell) {
+                            tr.append('<td>' + cell + '</td>');
+                        });
+                        tr.append('<td><button class="update-button">Update</button> <td><button class="btn btn-danger btn-sm delete-btn">Delete</button></td>');
+                        tableBody.append(tr);
+                    });
+                    $('.update-button').click(function() {
+                        var row = $(this).closest('tr').index();
+                         
+                        var appendix = $(this).closest('table').attr('id').includes('c') ? 'C' : 'E';
+                        
+                        $('#update-form').show();
+
+                        
+                        $('#update-record-form').submit(function(event) {
+                            event.preventDefault();  
+                            
+                            
+                            var col = parseInt($('#update-col').val());
+                            var newValue = $('#update-value').val();
+
+                            
+                            
+                            if (isNaN(col) || col < 2) {
+                                alert('Please enter a valid column number (2 or greater)');
+                                return;
+                            }
+
+                            
+                            $.ajax({
+                                url: 'https://0ngcz0jayc.execute-api.ap-south-1.amazonaws.com/test/excel-crud',  // Replace with your API Gateway URL
+                                type: 'POST',
+                                data: JSON.stringify({
+                                    operation: 'update',
+                                    data: {
+                                        appendix: appendix,
+                                        row: row,  
+                                        col: col,
+                                        value: newValue
+                                    }
+                                }),
+                                contentType: 'application/json',
+                                success: function(response) {
+                                    alert('Record updated successfully!');
+                                    loadTables();
+                                },
+                                error: function(error) {
+                                    console.error('Error updating data:', error);
+                                }
+                            });
+
+                            
+                            $('#update-form').hide();
+                        });
+
+                    });
+
+                    $('.delete-btn').click(function() {
+                        var row = $(this).closest('tr').index();
+                        console.log("Row index to be deleted: ", row); 
+                        var appendix = $(this).closest('table').attr('id').includes('c') ? 'C' : 'E';
+
+                        $.ajax({
+                            url: lambdaUrl,
+                            type: 'POST',
+                            contentType: 'application/json',
+                            data: JSON.stringify({
+                                operation: 'delete',
+                                data: {
+                                    appendix: appendix,
+                                    row: row
+                                }
+                            }),
+                            success: function(response) {
+                                alert('Record deleted successfully!');
+                                loadTables();
+                            },
+                            error: function(error) {
+                                alert('Error deleting record');
+                            }
+                        });
+                    });
+                },
+                error: function(error) {
+                    alert('Error loading table: ' + error.responseText);
+                }
+            });
+        }
+    });
+</script>
