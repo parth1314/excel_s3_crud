@@ -26,7 +26,8 @@ Form to create record in Appendix E:
 
 Form to update a record:
 
-![image](https://github.com/parth1314/excel_s3_crud/assets/97305249/ea97af0f-6fe2-46a7-b4b5-5ccf7fc5f964)
+![image](https://github.com/user-attachments/assets/30c927a2-d603-4c19-afa1-5d7d2ddba549)
+
 
 
 
