@@ -370,7 +370,10 @@
                                 alert('Please enter a valid column number (2 or greater)');
                                 return;
                             }
-
+                            if(newValue===null || newValue===""){
+                                alert('Please enter a valid value');
+                                return;
+                            }
                             
                             $.ajax({
                                 url: 'https://0ngcz0jayc.execute-api.ap-south-1.amazonaws.com/test/excel-crud',  // Replace with your API Gateway URL
@@ -432,4 +435,5 @@
             });
         }
     });
-</script>
+    </script>
+    
